@@ -1,0 +1,3 @@
+Hay que revisar en GitHub esto:
+index.html y style1.css 
+https://github.com/jaimepere369-eng/UFC_GJ
