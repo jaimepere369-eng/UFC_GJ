@@ -48,6 +48,20 @@ header h1 {
     font-size: 38px;
     color: #fff;
 }
+.ufc-image {
+    display: block;
+    margin: 20px auto;
+    border: 5px solid #e10600;
+    border-radius: 12px;
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 20px rgba(225, 6, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.ufc-image:hover {
+    transform: scale(2.05);
+}
 
 section {
     max-width: 900px;
