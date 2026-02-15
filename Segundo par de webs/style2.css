@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0f0f0f;
+    color: #f2f2f2;
+    line-height: 1.6;
+}
+
+nav {
+    background-color: #141414;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background-color: #b22222;
+}
+
+header {
+    background: linear-gradient(90deg, #1a1a1a, #b22222);
+    padding: 30px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 34px;
+}
+
+section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.division-list {
+    margin-top: 40px;
+}
+
+h3 {
+    margin-bottom: 15px;
+    color: #d4af37;
+    border-left: 5px solid #b22222;
+    padding-left: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1c1c1c;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+thead {
+    background-color: #b22222;
+}
+
+thead th {
+    padding: 12px;
+    text-align: left;
+    color: white;
+    font-size: 15px;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #333;
+}
+
+tbody tr:hover {
+    background-color: #292929;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #181818;
+}
+
+tbody tr:first-child {
+    background-color: #2b0000;
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #141414;
+    margin-top: 50px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+}
