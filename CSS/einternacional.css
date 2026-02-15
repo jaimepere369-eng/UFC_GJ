@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0b0b0b;
+    color: #f2f2f2;
+    line-height: 1.7;
+}
+
+nav {
+    background-color: #111;
+    padding: 15px 0;
+    text-align: center;
+    border-bottom: 3px solid #e10600;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #e10600;
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(to right, #000000, #1c1c1c);
+    border-bottom: 3px solid #e10600;
+    border-radius: 0 0 15px 15px;
+}
+
+header h1 {
+    font-size: 44px;
+    color: #e10600;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+}
+
+header p {
+    font-size: 18px;
+    color: #ccc;
+}
+
+section {
+    width: 85%;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 25px 30px;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(225, 6, 0, 0.3);
+    transition: 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-3px);
+}
+
+section h2 {
+    color: #e10600;
+    margin-bottom: 15px;
+    border-left: 6px solid #e10600;
+    padding-left: 12px;
+    font-size: 26px;
+}
+
+p {
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+ul {
+    margin-top: 12px;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    background-color: #2a2a2a;
+    border-left: 4px solid #e10600;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+ul li:hover {
+    background-color: #333;
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    background-color: #111;
+    border-top: 3px solid #e10600;
+    margin-top: 50px;
+    font-size: 14px;
+    color: #aaa;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 28px;
+    }
+
+    section {
+        width: 95%;
+        padding: 20px;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+}
