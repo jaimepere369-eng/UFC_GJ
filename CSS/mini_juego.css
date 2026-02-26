@@ -1,24 +1,128 @@
 body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background-color: #111;
-        color: white;
-    }
-    .fighter {
-        margin: 20px;
-        padding: 20px;
-        border: 2px solid white;
-        display: inline-block;
-        width: 250px;
-        border-radius: 10px;
-    }
-    button {
-        padding: 10px 20px;
-        margin: 10px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-    #log {
-        margin-top: 20px;
-        min-height: 50px;
-    }
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #111;
+    color: white;
+}
+.fighter {
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid white;
+    display: inline-block;
+    width: 250px;
+    border-radius: 10px;
+}
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+ #log {
+    margin-top: 20px;
+    min-height: 50px;
+}
+
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000 70%);
+    color:white;
+    text-align:center;
+}
+
+h1{
+    font-size:40px;
+    letter-spacing:2px;
+    margin-top:20px;
+    text-transform:uppercase;
+    text-shadow:0 0 15px red;
+}
+
+.fighter{
+    display:inline-block;
+    margin:30px;
+    padding:25px;
+    width:280px;
+    background:linear-gradient(145deg,#111,#1f1f1f);
+    border-radius:15px;
+    box-shadow:0 0 20px rgba(255,0,0,0.4);
+    transition:transform 0.3s;
+}
+
+.fighter:hover{
+    transform:scale(1.05);
+}
+
+.fighter h2{
+    margin-bottom:15px;
+    font-size:22px;
+    text-transform:uppercase;
+}
+
+.vida-container{
+    background:#333;
+    border-radius:10px;
+    overflow:hidden;
+    height:20px;
+    margin-top:10px;
+}
+
+.vida-barra{
+    height:100%;
+    width:100%;
+    background:linear-gradient(90deg,#00ff00,#66ff00);
+    transition:width 0.5s ease;
+}
+
+button{
+    padding:12px 18px;
+    margin:8px;
+    font-size:15px;
+    font-weight:bold;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    background:linear-gradient(90deg,#b30000,#ff0000);
+    color:white;
+    transition:all 0.2s ease;
+    box-shadow:0 0 10px rgba(255,0,0,0.5);
+}
+
+button:hover{
+    background:linear-gradient(90deg,#ff0000,#ff4d4d);
+    transform:translateY(-2px);
+    box-shadow:0 0 20px rgba(255,0,0,0.8);
+}
+
+button:active{
+    transform:scale(0.95);
+}
+
+#estado{
+    margin-top:20px;
+    font-size:18px;
+    font-weight:bold;
+    color:#ffcc00;
+    text-shadow:0 0 8px #ffcc00;
+}
+
+#log{
+    margin:20px auto;
+    width:60%;
+    min-height:60px;
+    padding:15px;
+    background:#1a1a1a;
+    border-radius:10px;
+    box-shadow:0 0 15px rgba(255,255,255,0.1);
+    font-size:16px;
+}
+
+@keyframes dañoFlash{
+    0%{background:red;}
+    100%{background:linear-gradient(90deg,#00ff00,#66ff00);}
+}
+
+.vida-barra.daño{
+    animation:dañoFlash 0.3s;
+}

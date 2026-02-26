@@ -14,17 +14,29 @@
 <div class="fighter">
     <h2>Ilia Topuria</h2>
     <img src="1751207912-ilia-topuria-gana-campeonato-peso-ligero-ufc.jpg" width="150">
-    <p>Vida: <span id="vidaTopuria">100</span></p>
-    <button onclick="atacar('topuria')">Atacar</button>
+    <p>Vida:</p>
+    <div class="vida-container">
+        <div id="barraTopuria" class="vida-barra"></div>
+</div>
 </div>
 
 <div class="fighter">
     <h2>Makhachev</h2>
     <img src="16667175700086.jpg" width="150">
-    <p>Vida: <span id="vidaMakhachev">100</span></p>
-    <button onclick="atacar('makhachev')">Atacar</button>
+    <p>Vida:</p>
+    <div class="vida-container">
+        <div id="barraMakhachev" class="vida-barra"></div>
+</div>
 </div>
 
+<div>
+    <h3>Acciones</h3>
+    <button onclick="accion('ligero')">Golpe Ligero</button>
+    <button onclick="accion('pesado')">Golpe Pesado</button>
+    <button onclick="accion('suelo')">Intentar Derribo</button>
+</div>
+
+<div id="estado"></div>
 <div id="log"></div>
 <script src="JS/script1.js"></script>
 </body>
