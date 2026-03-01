@@ -1,128 +1,142 @@
 let vidaTopuria = 100;
 let vidaMakhachev = 100;
-let turno = "topuria";
-let enSuelo = false;
-let juegoActivo = true;
 
-function random(min,max){
-    return Math.floor(Math.random()*(max-min+1))+min;
+const barraTopuria = document.getElementById("barraTopuria");
+const barraMakhachev = document.getElementById("barraMakhachev");
+const estado = document.getElementById("estado");
+const log = document.getElementById("log");
+
+// Inicializar barras
+actualizarBarras();
+
+function actualizarBarras() {
+    barraTopuria.style.width = vidaTopuria + "%";
+    barraMakhachev.style.width = vidaMakhachev + "%";
 }
 
-function actualizarVida(){
-    document.getElementById("vidaTopuria").textContent = vidaTopuria>0?vidaTopuria:0;
-    document.getElementById("vidaMakhachev").textContent = vidaMakhachev>0?vidaMakhachev:0;
-}
+// Función principal de acción
+function accion(tipo) {
 
-function accion(tipo){
-    if(!juegoActivo || turno !== "topuria") return;
-
-    if(!enSuelo){
-        if(tipo==="ligero") golpeLigero("topuria");
-        if(tipo==="pesado") golpePesado("topuria");
-        if(tipo==="suelo") intentarDerribo("topuria");
-    } else {
-        accionSuelo("topuria");
-    }
-
-    actualizarVida();
-    verificar();
-    if(juegoActivo) turnoCPU();
-}
-
-function golpeLigero(quien){
-    let daño = random(8,12);
-    aplicarDaño(quien, daño);
-    log("Golpe ligero conecta y hace "+daño+" de daño.");
-}
-
-function golpePesado(quien){
-    let acierta = Math.random() < 0.6; // 60% acierto
-    if(!acierta){
-        log("¡Golpe pesado falla!");
+    if (vidaTopuria <= 0 || vidaMakhachev <= 0) {
+        estado.innerHTML = "La pelea ha terminado.";
         return;
     }
 
-    let critico = Math.random() < 0.25; // 25% crítico
-    let daño = random(15,25);
+    let atacante = Math.random() < 0.5 ? "Topuria" : "Makhachev";
+    let defensor = atacante === "Topuria" ? "Makhachev" : "Topuria";
+    let daño = 0;
 
-    if(critico){
-        daño *= 2;
-        log("¡CRÍTICO! 💥");
-    }
+    if (tipo === "ligero") {
 
-    aplicarDaño(quien, daño);
-    log("Golpe pesado conecta y hace "+daño+" de daño.");
-}
+        daño = Math.floor(Math.random() * 10) + 5;
 
-function intentarDerribo(quien){
-    let exito = Math.random() < 0.55; // 55% éxito
-    if(exito){
-        enSuelo = true;
-        document.getElementById("estado").textContent="¡Están en el suelo!";
-        log("Derribo exitoso.");
-    } else {
-        log("Intento de derribo fallido.");
-    }
-}
-
-function accionSuelo(quien){
-    let evento = Math.random();
-
-    if(evento < 0.3){
-        // Sumisión
-        log("¡Sumisión lograda! 🔒");
-        if(quien==="topuria") vidaMakhachev=0;
-        else vidaTopuria=0;
-    }
-    else if(evento < 0.6){
-        // Escape
-        enSuelo=false;
-        document.getElementById("estado").textContent="Vuelven de pie.";
-        log("¡Se escapa y vuelven a pelear de pie!");
-    }
-    else{
-        // Ground & pound
-        let daño=random(10,18);
-        aplicarDaño(quien,daño);
-        log("Ground & Pound hace "+daño+" de daño.");
-    }
-}
-
-function aplicarDaño(quien,daño){
-    if(quien==="topuria") vidaMakhachev-=daño;
-    else vidaTopuria-=daño;
-}
-
-function turnoCPU(){
-    turno="makhachev";
-
-    setTimeout(()=>{
-        if(!enSuelo){
-            let eleccion=random(1,3);
-            if(eleccion===1) golpeLigero("makhachev");
-            if(eleccion===2) golpePesado("makhachev");
-            if(eleccion===3) intentarDerribo("makhachev");
+        if (atacante === "Topuria") {
+            vidaMakhachev -= daño;
         } else {
-            accionSuelo("makhachev");
+            vidaTopuria -= daño;
         }
 
-        actualizarVida();
-        verificar();
-        turno="topuria";
-    },1000);
+        log.innerHTML = "👊 " + atacante + " conecta golpe ligero y hace " + daño + " de daño.";
+
+    } 
+    else if (tipo === "pesado") {
+
+        daño = Math.floor(Math.random() * 20) + 10;
+
+        if (atacante === "Topuria") {
+            vidaMakhachev -= daño;
+        } else {
+            vidaTopuria -= daño;
+        }
+
+        log.innerHTML = "💥 " + atacante + " lanza golpe pesado y hace " + daño + " de daño.";
+
+    } 
+    else if (tipo === "suelo") {
+
+        log.innerHTML = "🤼 " + atacante + " intenta derribo... ¡Se van al suelo!";
+
+        let probabilidad = Math.random();
+
+        // 15% SUMISIÓN
+        if (probabilidad < 0.15) {
+            
+            if (atacante === "Topuria") {
+                vidaMakhachev = 0;
+            } else {
+                vidaTopuria = 0;
+            }
+
+            actualizarBarras();
+            verificarGanador("sumision");
+            return;
+
+        }
+        // 60% HUIDA
+        else if (probabilidad < 0.75) {
+
+            log.innerHTML += "<br>💨 ¡" + defensor + " logra escapar rápidamente!";
+
+        }
+        // 25% CONTROL EN EL SUELO
+        else {
+
+            daño = Math.floor(Math.random() * 12) + 6;
+
+            if (atacante === "Topuria") {
+                vidaMakhachev -= daño;
+            } else {
+                vidaTopuria -= daño;
+            }
+
+            log.innerHTML += "<br>🔒 " + atacante + " domina en el suelo y hace " + daño + " de daño.";
+
+        }
+    }
+
+    if (vidaTopuria < 0) vidaTopuria = 0;
+    if (vidaMakhachev < 0) vidaMakhachev = 0;
+
+    actualizarBarras();
+    verificarGanador();
 }
 
-function verificar(){
-    if(vidaTopuria<=0){
-        log("¡Makhachev gana!");
-        juegoActivo=false;
-    }
-    if(vidaMakhachev<=0){
-        log("¡Topuria gana!");
-        juegoActivo=false;
+function verificarGanador(tipoVictoria = "KO") {
+
+    if (vidaTopuria <= 0) {
+
+        if (tipoVictoria === "sumision") {
+            estado.innerHTML = "🏆 ¡Makhachev gana por SUMISIÓN!";
+        } else {
+            estado.innerHTML = "🏆 ¡Makhachev gana por KO!";
+        }
+
+        botonReiniciar.style.display = "inline-block";
+    } 
+    else if (vidaMakhachev <= 0) {
+
+        if (tipoVictoria === "sumision") {
+            estado.innerHTML = "🏆 ¡Topuria gana por SUMISIÓN!";
+        } else {
+            estado.innerHTML = "🏆 ¡Topuria gana por KO!";
+        }
+
+        botonReiniciar.style.display = "inline-block";
     }
 }
 
-function log(texto){
-    document.getElementById("log").innerHTML=texto;
+// Función para reiniciar el juego
+const botonReiniciar = document.getElementById("reiniciar");
+
+function reiniciarJuego() {
+
+    vidaTopuria = 100;
+    vidaMakhachev = 100;
+
+    actualizarBarras();
+
+    estado.innerHTML = "";
+    log.innerHTML = "";
+
+    botonReiniciar.style.display = "none";
 }
