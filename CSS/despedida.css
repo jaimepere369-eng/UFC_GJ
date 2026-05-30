@@ -1,0 +1,51 @@
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #111, #222);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #e10600;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 15px 30px;
+            background-color: #e10600;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #b30400;
+        }
+
+        footer {
+            margin-top: 80px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .gloves {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
