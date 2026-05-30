@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Mini UFC Game</title>
+<link rel="stylesheet" href=CSS/mini_juego.css>
+</head>
+<body>
+<nav>
+    <a href="index.html">Inicio</a>
+</nav>
+<h1>Mini UFC: Topuria vs Makhachev</h1>
+
+<div class="fighter">
+    <h2>Ilia Topuria</h2>
+    <img src="1751207912-ilia-topuria-gana-campeonato-peso-ligero-ufc.jpg" width="150">
+    <p>Vida:</p>
+    <div class="vida-container">
+        <div id="barraTopuria" class="vida-barra"></div>
+</div>
+</div>
+
+<div class="fighter">
+    <h2>Makhachev</h2>
+    <img src="16667175700086.jpg" width="150">
+    <p>Vida:</p>
+    <div class="vida-container">
+        <div id="barraMakhachev" class="vida-barra"></div>
+</div>
+</div>
+
+<div>
+    <h3>Acciones</h3>
+    <button onclick="accion('ligero')">Golpe Ligero</button>
+    <button onclick="accion('pesado')">Golpe Pesado</button>
+    <button onclick="accion('suelo')">Intentar Derribo</button>
+</div>
+
+<button id="reiniciar" onclick="reiniciarJuego()" style="display:none;">
+    🔄 Volver a jugar
+</button>
+
+<div id="estado"></div>
+<div id="log"></div>
+<script src="JS/script1.js"></script>
+</body>
+</html>

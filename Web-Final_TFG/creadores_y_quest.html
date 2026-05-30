@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Presentación y Opinión - UFC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="CSS/style4.css">
+</head>
+
+<body>
+    
+<nav>
+    <a href="index.html">Inicio</a>
+</nav>
+
+<header>
+    <h1>Presentación y Opinión sobre la UFC</h1>
+</header>
+
+<section>
+    <h2>Sobre el Creador</h2>
+    <p>
+        Esta página web ha sido creada por <strong>Jaime</strong>, con el objetivo de informar y compartir contenido sobre la UFC y las Artes Marciales Mixtas.
+        Soy apasionados del deporte y he desarrollado esta web como proyecto informativo.
+    </p>
+    
+    <h2>Para contactarme</h2>
+    <p>Correo a jg.perod464@gmail.com</p>
+
+    <h2>Dejanos tu contacto para informarte de nuevos eventos y peleas</h2>
+    <form>
+        <label>Nombre:</label>
+        <input type="text" placeholder="Escribe tu nombre">
+
+        <label>Email:</label>
+        <input type="email" placeholder="Escribe tu correo electrónico">
+
+        <label>Mensaje:</label>
+        <textarea rows="4" placeholder="Escribe tu mensaje aquí"></textarea>
+    </form>
+    <section>
+    <h2>Cuestionario sobre la UFC</h2>
+    <form>
+
+        <label>¿Te parecen buenas las peleas de la UFC?:</label><br>
+        <input type="radio" name="peleas"> Sí, son muy emocionantes<br>
+        <input type="radio" name="peleas"> Son interesantes<br>
+        <input type="radio" name="peleas"> No me gustan<br>
+
+        <label>¿Recomendarías ver la UFC?:</label><br>
+        <input type="radio" name="recomendar"> Sí<br>
+        <input type="radio" name="recomendar"> No<br>
+
+        <div class="botones">
+            <button type="submit" class="enviar">Enviar</button>
+            <button type="reset" class="eliminar">Eliminar</button>
+        </div>
+
+    </form>
+
+    <h2>¿Qué le dirías a alguien para recomendar la UFC?</h2>
+    
+    <form id="formulario">
+        <textarea id="mensajeTexto" rows="6" maxlength="300"
+        placeholder="Escribe aquí tu recomendación..."></textarea>
+
+        <div class="contador">
+            <span id="contador">300 caracteres</span>
+        </div>
+
+        <div class="botones">
+            <button type="submit" class="enviar">Enviar</button>
+            <button type="reset" class="eliminar">Eliminar</button>
+        </div>
+
+        <div class="mensaje" id="confirmacion"></div>
+    </form>
+</section>
+
+<section>
+    <h2>Opinión sobre la Página Web</h2>
+    <form>
+
+        <label>¿Qué te ha parecido nuestra página?</label><br>
+        <input type="radio" name="web"> Buena<br>
+        <input type="radio" name="web"> Muy buena<br>
+        <input type="radio" name="web"> Excelente<br>
+
+        <label>Cuéntanos tu experiencia:</label>
+        <textarea id="experiencia" rows="5"
+        placeholder="Escribe aquí qué te ha parecido la página, qué mejorarías, qué te gustó..."></textarea>
+
+        <div class="botones">
+            <button type="submit" class="enviar">Enviar</button>
+            <button type="reset" class="eliminar">Eliminar</button>
+        </div>
+    </form>
+</section>
+
+</body>
+</html>
